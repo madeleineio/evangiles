@@ -2,6 +2,7 @@
  * Created by nicolasmondon on 27/01/15.
  */
 
+// modules
 var cheerio = require('cheerio');
 var needle = require('needle');
 var fs = require('fs');
@@ -9,6 +10,8 @@ var Promise = require('bluebird');
 var _ = require('underscore');
 
 // generate urls
+var urls = [];
+var urlTemplate = _.template('http://www.bible-en-ligne.net/bible,<%=id%>N-<%=numPage%>,<%=author%>.php');
 var evangileNames = [
     {
         author: 'matthieu',
@@ -31,8 +34,6 @@ var evangileNames = [
         id: '43'
     }
 ];
-var urls = [];
-var urlTemplate = _.template('http://www.bible-en-ligne.net/bible,<%=id%>N-<%=numPage%>,<%=author%>.php');
 evangileNames.forEach(function(e){
     urls = urls.concat(_.range(1, e.total+1).map(function(numPage){
         return urlTemplate(_.extend({
@@ -41,12 +42,10 @@ evangileNames.forEach(function(e){
     }));
 });
 
-console.log(JSON.stringify(urls));
-
 // retrieve datas
 var evangiles = [];
 var options = {
-    timeout: 5000 // if we don't get a response in 5 seconds, boom.
+    timeout: 5000
 };
 Promise.promisifyAll(needle);
 var current = Promise.resolve();
