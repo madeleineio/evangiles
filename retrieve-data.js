@@ -57,7 +57,6 @@ Promise.map(urls, function(url){
     });
     return current;
 }).map(function(responseAndBody){
-    //console.log(responseAndBody[1]);
     var $ = cheerio.load(responseAndBody[1], {
         normalizeWhitespace: true,
         xmlMode: true,
@@ -70,6 +69,5 @@ Promise.map(urls, function(url){
         });
     });
 }).then(function(){
-    console.log(JSON.stringify(evangiles));
     fs.writeFileSync('data/evangiles.json', JSON.stringify(evangiles));
 });
