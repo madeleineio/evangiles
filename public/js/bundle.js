@@ -79,7 +79,7 @@
 	var d3 = __webpack_require__(4);
 	var _ = __webpack_require__(5);
 	
-	var regSort = /(.+)-.*(\d+).*-.*(\d+).*/;
+	var regSort = /(.+)-.* (\d+).*-.* (\d+).*/;
 	var regCleanText = /\d+:\d+(.+)/;
 	
 	module.exports = new P(function(resolve){

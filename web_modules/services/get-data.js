@@ -6,7 +6,7 @@ var P = require('bluebird');
 var d3 = require('d3');
 var _ = require('lodash');
 
-var regSort = /(.+)-.*(\d+).*-.*(\d+).*/;
+var regSort = /(.+)-.* (\d+).*-.* (\d+).*/;
 var regCleanText = /\d+:\d+(.+)/;
 
 module.exports = new P(function(resolve){
