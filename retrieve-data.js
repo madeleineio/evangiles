@@ -68,5 +68,5 @@ Promise.map(urls, function(url){
         });
     });
 }).then(function(){
-    fs.writeFileSync('data/evangiles.json', JSON.stringify(evangiles));
+    fs.writeFileSync('public/data/evangiles.json', JSON.stringify(evangiles));
 });
