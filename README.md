@@ -11,4 +11,5 @@ http://julian.com/research/blast/
 * rita / natural
 * https://github.com/NaturalNode/natural
 * http://eduscol.education.fr/cid47916/liste-des-mots-classee-par-frequence-decroissante.html
---> JSON.stringify($('.divTable').find('tr').map(function(){ return $(this).find('td').eq(1).text() }).toArray())   
+--> JSON.stringify($('.divTable').find('tr').map(function(){ return $(this).find('td').eq(1).text() }).toArray())
+* https://www.mql5.com/en/articles/283   
