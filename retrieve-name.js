@@ -6,9 +6,9 @@ var indexOf = require('lodash/array/indexOf')
 var capitalize = require('lodash/string/capitalize')
 
 var evangiles = JSON.parse(fs.readFileSync(path.resolve('public/data/evangiles.json')))
-var blackList = JSON.parse(fs.readFileSync(path.resolve('public/data/most-frequent-french-worlds.json')))
+var mostFrequents = JSON.parse(fs.readFileSync(path.resolve('public/data/frequence.json')))
     .map(function (w) {
-        return capitalize(w)
+        return capitalize(w.label)
     })
 
 
@@ -25,7 +25,7 @@ evangiles.forEach(function (v) {
             return w.length > 1
                     // filter string with no Uppercase
                 && /[A-ZÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]/.test(w.charAt(0))
-                && indexOf(blackList, w) === -1
+                && indexOf(mostFrequents, w) === -1
 
         }))
 
